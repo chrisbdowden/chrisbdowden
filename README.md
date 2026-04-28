@@ -9,15 +9,15 @@ I'm a computational biology explorer challenging established paradigms in biomar
 ## What I'm Working On
 
 ### [Biomarker Probability Fusion (BPF)](https://github.com/pulselogicbio/pulselogic-bpf)
-A deterministic, tuning-free framework for biomarker discovery that outperforms LASSO, ElasticNet, and Random Forest on 23 independent cancer cohorts (mean AUC 0.8077). Validated disease-agnostic across oncology, Alzheimer's disease, and Parkinson's disease without domain-specific modifications.
+A deterministic biomarker discovery framework with locked, dataset-independent parameters. Validated on 39 oncology cohorts (16,958 patients, mean AUC 0.8077) and benchmarked against properly-tuned LASSO, ElasticNet, and Random Forest on a 15-cohort independent comparator set (5,654 patients). Validated disease-agnostic across oncology, Alzheimer's disease, and Parkinson's disease without domain-specific modifications.
 
-**Key innovation:** Univariate AUC ranking + adaptive selection + weighted probability fusion — no inner-loop hyperparameter tuning required.
+**Key innovation:** Univariate AUC ranking + adaptive selection + AUC-derived weighting + probabilistic fusion via sigmoid transformation — applied with locked parameters across all cohorts and disease domains.
 
 ### [Computational Bio-AI Engineering (CBAE)](https://github.com/pulselogicbio/cbae-compliance-algorithm)
 A reproducibility framework with 18-assertion deterministic evaluation for biological ML pipelines. Built to enforce audit trails, reproducibility, and bounded deployment envelopes.
 
 ### Three-Domain Validation Platform
-- **[Oncology (Phase 1)](https://github.com/pulselogicbio/pulselogic-platform):** 39 TCGA cohorts, 16,958 patients, mean AUC 0.8077
+- **[Oncology (Phase 1)](https://github.com/pulselogicbio/pulselogic-platform):** 39 TCGA, GDC, and CGCI cohorts, 16,958 patients, mean AUC 0.8077
 - **[Alzheimer's Disease (Phase 2)](https://github.com/pulselogicbio/pulselogic-alzheimers):** ADNI transcriptomics/genomics/methylation, peak AUC 0.948
 - **[Parkinson's Disease (Phase 3)](https://github.com/pulselogicbio/pulselogic-parkinsons):** PPMI prodromal detection, AUC 0.766 for pre-motor PD
 
@@ -47,23 +47,24 @@ A reproducibility framework with 18-assertion deterministic evaluation for biolo
 
 ## Why This Matters
 
-Established feature selection methods (LASSO, ElasticNet) rely on:
-- Hyperparameter tuning (which leaks information)
-- Multivariate black-box approaches (which obscure biological interpretation)
-- Cohort-specific modifications (which break generalizability)
+Established feature selection methods (LASSO, ElasticNet) typically require:
+- Per-dataset hyperparameter tuning
+- Multivariate fitting that obscures per-feature contribution
+- Cohort-specific tuning choices that affect cross-cohort comparison
 
-**BPF challenges all three.** It's deterministic, interpretable, and disease-agnostic.
+**BPF takes a different approach** — locked, dataset-independent parameters with univariate per-gene scoring. The result: deterministic outputs that are directly comparable across cohorts and diseases.
 
 ---
 
 ## Research & Publications
 
-### Under Review
-- **Bioinformatics:** BPF methodology paper (BIOINF-2026-0795) — expected decision June 1, 2026
-- **GigaScience:** CBAE reproducibility framework (GIGA-D-26-00097) — expected decision May 15, 2026
-- **Paper 3 (LOCKED & READY):** Cross-domain validation capstone (triggers on primary acceptance)
+### Active Manuscripts
 
-**Full publication status:** [PUBLICATIONS.md](PUBLICATIONS.md)
+Multiple manuscripts in preparation, under revision, or pending submission across BPF methodology, CBAE reproducibility framework, and disease-specific validation. Citable Zenodo software releases are available in advance of journal publication (see Resources below).
+
+**Current publication status:** [PUBLICATIONS.md](PUBLICATIONS.md)
+
+Contact for current submission status of specific manuscripts.
 
 ---
 
@@ -84,8 +85,8 @@ I'm actively seeking partnerships with labs doing:
 
 ### Resources
 - **GitHub Organization:** [@pulselogicbio](https://github.com/pulselogicbio)
-- **Methodology Paper:** [Bioinformatics (submitted)](https://github.com/pulselogicbio/pulselogic-bpf) — BIOINF-2026-0795
-- **Reproducibility Toolkit:** [CBAE on GitHub](https://github.com/pulselogicbio/cbae-compliance-algorithm) — DOI: [10.5281/zenodo.19213057](https://doi.org/10.5281/zenodo.19213057)
+- **BPF software:** [pulselogic-bpf](https://github.com/pulselogicbio/pulselogic-bpf) — Zenodo DOI: [10.5281/zenodo.19342790](https://doi.org/10.5281/zenodo.19342790)
+- **CBAE reproducibility toolkit:** [cbae-compliance-algorithm](https://github.com/pulselogicbio/cbae-compliance-algorithm) — Zenodo DOI: [10.5281/zenodo.19412560](https://doi.org/10.5281/zenodo.19412560)
 - **Platform Results:** [pulselogic-platform](https://github.com/pulselogicbio/pulselogic-platform) — All three domains with DOI-versioned artifacts
 
 ---
@@ -136,5 +137,5 @@ If you have data, ideas, or collaborations for any of these — let's talk.
 
 ---
 
-*Last updated: April 1, 2026*  
+*Last updated: April 27, 2026*  
 *See also: [@pulselogicbio](https://github.com/pulselogicbio) — the research organization*
